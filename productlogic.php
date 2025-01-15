@@ -41,13 +41,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     // Insert product data in the database
-    $insert_product = "INSERT INTO products (category_id, name, price, product_img, description) 
+    $insert_product = "INSERT INTO products (category_id, product_name, price, product_img, description) 
                        VALUES ('$category_id', '$name', '$price', '$main_img_upload_path', '$description')";
 
     if (mysqli_query($conn, $insert_product) === TRUE) {
         $last_id = $conn->insert_id;
 
-        // Sub Images Upload (Multiple)
+        // Sub Images Upload Multiple
         if (isset($_FILES['sub_img']) && count($_FILES['sub_img']['name']) > 0) {
             for ($i = 0; $i < count($_FILES['sub_img']['name']); $i++) {
                 
@@ -79,6 +79,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         echo "Error inserting product: " . mysqli_error($conn);
     }
+
+    // Success Message
+    $_SESSION['add_message'] = "Product added successfully.";
+    header("Location: product.php");
+    exit();
 }
 
 

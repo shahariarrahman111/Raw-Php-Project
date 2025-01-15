@@ -604,3 +604,21 @@ tbody tr:hover {
     outline: none;
     border-color: #000;
 }
+
+.list a .add_product {
+    display: flex;
+    flex-direction: row;
+    /* width: 20%; */
+    /* height: 0px; */
+    margin-left: 1000px;
+    /* margin-top: 60px; */
+    margin-bottom: 10px;
+    /* padding-bottom: 0px; */
+    padding: 8px;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    background-color: rgb(38, 113, 113);
+    text-decoration: none;
+    
+}

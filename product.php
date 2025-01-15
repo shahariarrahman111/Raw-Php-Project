@@ -1,4 +1,5 @@
 <?php
+    session_start();
     include 'productlogic.php';
     // include 'subImages.php';
     include 'mainlayout.php';     
@@ -11,9 +12,9 @@
         <h2>Add Product</h2>
 
         <?php 
-            if (isset($_SESSION['product_message'])) {
-                echo "<div style='color:green; text-align: center;'>" . $_SESSION['product_message'] . "</div>";
-                unset($_SESSION['product_message']);
+            if (isset($_SESSION['add_message'])) {
+                echo "<div style='color:green; text-align: center;'>" . $_SESSION['add_message'] . "</div>";
+                unset($_SESSION['add_message']);
             }
         ?>
 
@@ -67,27 +68,52 @@
 </div>
 
 <script>
-    
-    // JavaScript for Main Image Preview
+    // JavaScript for Main Image Preview and Removal
     function previewMainImage(event) {
         const file = event.target.files[0];
         const reader = new FileReader();
 
         reader.onload = function(e) {
             const preview = document.getElementById('main_image_preview');
+            // Clear any previous preview
             preview.innerHTML = '';
+
+            const imgContainer = document.createElement('div');
             const img = document.createElement('img');
             img.src = e.target.result;
             img.style.width = '200px';
-            preview.appendChild(img);
-        }
+
+            // Create the remove button (cross)
+            const removeButton = document.createElement('button');
+            removeButton.innerHTML = '❌';
+            removeButton.style.position = 'absolute';
+            removeButton.style.top = '0';
+            removeButton.style.right = '0';
+            removeButton.style.fontSize = '15px';
+            removeButton.style.background = 'transparent';
+            removeButton.style.border = 'none';
+            removeButton.style.color = 'red';
+            removeButton.style.cursor = 'pointer';
+
+            removeButton.addEventListener('click', function() {
+                // Remove the image and the cross button
+                preview.innerHTML = '';
+                // Clear the input
+                document.getElementById('main_img').value = ''; 
+            });
+
+            imgContainer.style.position = 'relative';
+            imgContainer.appendChild(img);
+            imgContainer.appendChild(removeButton);
+            preview.appendChild(imgContainer);
+        };
 
         if (file) {
             reader.readAsDataURL(file);
         }
     }
 
-    // JavaScript for Sub-Thumbnail Images Preview
+    // JavaScript for Sub-Thumbnail Images Preview and Removal
     function previewSubImages(event) {
         const files = event.target.files;
         const previewContainer = document.getElementById('product_images_preview');
@@ -97,18 +123,54 @@
             const reader = new FileReader();
 
             reader.onload = function(e) {
+                const imgContainer = document.createElement('div');
                 const img = document.createElement('img');
                 img.src = e.target.result;
                 img.style.width = '100px';  
                 img.style.margin = '5px';
                 img.style.display = 'block';
 
-                // Append the new image
-                previewContainer.appendChild(img);
+                // Create the remove button (cross)
+                const removeButton = document.createElement('button');
+                removeButton.innerHTML = '❌';
+                removeButton.style.position = 'absolute';
+                removeButton.style.top = '0';
+                removeButton.style.right = '0';
+                removeButton.style.fontSize = '15px';
+                removeButton.style.background = 'transparent';
+                removeButton.style.border = 'none';
+                removeButton.style.color = 'red';
+                removeButton.style.cursor = 'pointer';
+
+                removeButton.addEventListener('click', function() {
+                    // Remove the image container
+                    imgContainer.remove();
+                    // Update the input files after removing an image
+                    updateSubImageInput();
+                });
+
+                imgContainer.style.position = 'relative';
+                imgContainer.appendChild(img);
+                imgContainer.appendChild(removeButton);
+                previewContainer.appendChild(imgContainer);
             };
 
             reader.readAsDataURL(files[i]);
         }
+    }
+
+    // Update the input field after removing an image
+    function updateSubImageInput() {
+        const inputElement = document.getElementById('sub_img');
+        const fileList = inputElement.files;
+
+        const dataTransfer = new DataTransfer();
+        for (let i = 0; i < fileList.length; i++) {
+            dataTransfer.items.add(fileList[i]);
+        }
+
+        // Update the input element with the new file list
+        inputElement.files = dataTransfer.files;
     }
 </script>
 

@@ -1,7 +1,7 @@
 CREATE TABLE `products` (
     `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `category_id` BIGINT(20) UNSIGNED NOT NULL,
-    `name` VARCHAR(255) NOT NULL,
+    `product_name` VARCHAR(255) NOT NULL,
     `price` DECIMAL(10, 2) NOT NULL,
     `product_img` VARCHAR(255) NOT NULL,
     `description` VARCHAR(255) NOT NULL,

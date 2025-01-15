@@ -8,11 +8,11 @@
         <div class="item">
             <ul>
                 <li><a href="home.php">Dashboard</a></li>
-                <li class="dropdown">
-                    <a href="product.php">Product</a>
-                    <ul class="dropdown-content">
+                <li>
+                    <a href="productListShow.php">Product</a>
+                    <!-- <ul class="dropdown-content">
                         <li><a href="productListShow.php">Product list</a></li>
-                    </ul>
+                    </ul> -->
                 </li>
                 <li><a href="category.php">Category</a></li>
                 <li><a href="profile.php">Profile</a></li>
