@@ -11,9 +11,9 @@
         <h2>Add Category</h2>
 
         <?php 
-            if(isset($_SESSION['message'])){
-                echo "<div style= 'color:green; text-align: center;'>" . $_SESSION['message'] . "</div>";
-                unset($_SESSION['message']);
+            if(isset($_SESSION['category_message'])){
+                echo "<div style= 'color:green; text-align: center;'>" . $_SESSION['category_message'] . "</div>";
+                unset($_SESSION['category_message']);
             }
         
         ?>

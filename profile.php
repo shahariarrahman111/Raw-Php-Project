@@ -1,4 +1,5 @@
 <?php
+    // session_start();
     include 'profileupdate.php';
     include 'mainlayout.php';
     include 'sideber.php';
@@ -13,6 +14,12 @@
 </div> -->
     <div class="main-contents">
         <h2>Edit Profile</h2>
+        <?php
+             if (isset($_SESSION['profile_message'])) {
+                echo "<div style='color:green; text-align: center;'>" . $_SESSION['profile_message'] . "</div>";
+                unset($_SESSION['profile_message']);
+            }
+        ?>
 
         <form action="profile.php" method="POST" enctype="multipart/form-data">
             <div>

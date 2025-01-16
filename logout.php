@@ -10,5 +10,4 @@
         header("Location: loginhtml.php");
         exit();
     }
-    
 ?>

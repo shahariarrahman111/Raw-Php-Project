@@ -36,24 +36,10 @@ body {
     border: 2px solid #ddd;
 }
 
-.profile-img img:hover{
-    height: 200px;
-    width: 200px;
-}
-
 .name p {
     margin-top: 10px;
     font-size: 18px;
     font-weight: bold;
-}
-
-.name p:hover {
-    transition: cubic-bezier(0.455, 0.03, 0.515, 0.955);
-    color: #4CAF50;
-    padding: 7px;
-    border-radius: 4px;
-    font-size: 20px;
-    background-color: #f4f4f4;
 }
 
 .item ul {
@@ -129,11 +115,6 @@ body {
     font-weight: bold;
 }
 
-.brand a:hover {
-    color: #ddd;
-    font-size: 40px;
-}
-
 .navbar-nav {
     display: flex;
     list-style: none;
@@ -181,21 +162,22 @@ body {
 }
 
 .card {
-    text-align: center;
+    /* text-align: center; */
     height: 120px;
     width: 280px;
     margin: 10px;
     border-radius: 5px;
-    background-color: white;
+    background-color: rgb(229, 229, 93);
     box-shadow: 2px 4px 8px rgba(105, 183, 210, 0.1);
 }
 
 .card p {
+    
     text-align: center;
     justify-content: center;
     font-weight: bold;
     display: flex;
-    margin-top: 3px;
+    margin-top: 20px;
 }
 
 /* Footer start */
@@ -620,5 +602,36 @@ tbody tr:hover {
     color: white;
     background-color: rgb(38, 113, 113);
     text-decoration: none;
-    
+
+}
+
+
+/* Pagination Css */
+
+/* Css start here */
+
+.pagination {
+    text-align: right;
+    margin: 20px 100px 20px 0px;
+}
+
+.pagination a {
+    text-decoration: none;
+    color: #007bff;
+    padding: 6px 12px;
+    margin: 0 3px;
+    border-radius: 5px;
+}
+
+.pagination a:hover {
+    background-color: #99bde4;
+    color: white;
+}
+
+.pagination .current-page {
+    padding: 6px 12px;
+    margin: 0 3px;
+    background-color: #99bde4;
+    color: white;
+    border-radius: 5px;
 }

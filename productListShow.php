@@ -1,6 +1,7 @@
 <?php
 include 'productList.php';
-include 'search.php';
+include 'pagiantion.php';
+// include 'search.php';
 include 'mainlayout.php';
 include 'sideber.php';  
 include 'header.php';
@@ -33,12 +34,12 @@ include 'header.php';
             <tbody>
                 <?php
                 $counter = 1;
-                foreach ($products as $product) {
+                foreach ($productss as $product) {
                     echo "<tr>";
                     echo "<td>" . $counter++ . "</td>";
                     echo "<td>" . htmlspecialchars($product['product_name']) . "</td>";
                     echo "<td>" . htmlspecialchars($product['price']) . "</td>";
-                    echo "<td><img src='" . htmlspecialchars($product['product_img']) . "' alt='" . htmlspecialchars($product['name']) . "' width='50' height='50'></td>";
+                    echo "<td><img src='" . htmlspecialchars($product['product_img']) . "' alt='" . htmlspecialchars($product['product_name']) . "' width='50' height='50'></td>";
                     echo "<td>" . htmlspecialchars($product['description']) . "</td>";
                     echo "<td>
                             <a href= 'update.php?product_id=" . $product['id'] . "'><button class= 'edit_btn'>Edit</button></a>
@@ -52,5 +53,29 @@ include 'header.php';
         </table>
     </div>
 </div>
+
+<!-- Pagination Links -->
+<div class="pagination">
+    <?php if ($page > 1): ?>
+        <a href="productListShow.php?page=<?= $page - 1 ?>"><<</a>
+    <?php endif; ?>
+
+    <?php
+    // Display page numbers, showing a range around the current page
+    
+    for ($i = 1; $i <= $totalPage; $i++) {
+        if ($i == $page) {
+            echo "<span class='current-page'>$i</span>";
+        } else {
+            echo "<a href='productListShow.php?page=$i'>$i</a>";
+        }
+    }
+    ?>
+
+    <?php if ($page < $totalPage): ?>
+        <a href="productListShow.php?page=<?= $page + 1 ?>">>></a>
+    <?php endif; ?>
+</div>
+
 
 <?php include 'footer.php'; ?>

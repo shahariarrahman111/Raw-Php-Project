@@ -19,7 +19,7 @@
 
         // Query 
         if (mysqli_query($conn, $add_sql)) {
-            $_SESSION['message'] = "Category added successfully!";
+            $_SESSION['category_message'] = "Category added successfully!";
             header("Location: category.php");
             exit();
         } else {

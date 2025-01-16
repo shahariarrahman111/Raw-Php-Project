@@ -20,7 +20,7 @@ session_start();
         <form action="update.php?product_id=<?php echo $product_id; ?>" method="POST" enctype="multipart/form-data">
             <div>
                 <label for="name">Product Name</label>
-                <input type="text" name="name" id="name" value="<?php echo isset($product) ? $product['name'] : ''; ?>" required>
+                <input type="text" name="name" id="name" value="<?php echo isset($product) ? $product['product_name'] : ''; ?>" required>
             </div>
 
             <div>

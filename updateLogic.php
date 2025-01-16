@@ -69,7 +69,7 @@
 
 
             if(move_uploaded_file($main_img_temp, $main_img_upload_path)){
-                $update_product = "UPDATE products SET category_id = '$category_id', name = '$name', price = '$price',
+                $update_product = "UPDATE products SET category_id = '$category_id', product_name = '$name', price = '$price',
                 product_img = '$main_img_upload_path', description = '$description' WHERE id = '$product_id'";
             }else{
                 echo "Failed to update image";
@@ -78,7 +78,7 @@
         } else{
 
             // If set new main image stay set old image
-            $update_product = "UPDATE products SET category_id = '$category_id', name = '$name', price = '$price',
+            $update_product = "UPDATE products SET category_id = '$category_id', product_name = '$name', price = '$price',
             description = '$description' WHERE id = '$product_id'";
         }  
         

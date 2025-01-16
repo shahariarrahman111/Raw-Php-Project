@@ -28,7 +28,9 @@
         $update_query = "UPDATE users SET name = '$name', password = '$password', email = '$email' WHERE id = '$user_id'";
 
         if(mysqli_query($conn , $update_query)){
-            header("Location: home.php");
+            $_SESSION['profile_message'] = "Profile updated successfull!";
+            header("Location: profile.php");
+            exit();
         } else {
             echo "Error updating profile: " . mysqli_error($conn);
         }
