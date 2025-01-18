@@ -6,6 +6,7 @@ $categories = "SELECT * FROM categories";
 $category_result = mysqli_query($conn, $categories);
 
 // Save product
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $category_id = $_POST['category_id'];
     $name = $_POST['name'];
@@ -15,6 +16,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Check if Category is valid
     if (empty($category_id)) {
         echo "Please select a category.";
+        exit();
+    }
+
+    // Check Category status
+
+    $categoryQuery = "SELECT status FROM categories WHERE id = '$category_id'";
+    $categoryQueryResult = mysqli_query($conn, $categoryQuery);
+    $categoryDataFetch = mysqli_fetch_assoc($categoryQueryResult);
+
+    if ($categoryDataFetch['status'] === 'inactive') {
+        $_SESSION['error_msg'] = "This category is inactive. Product cannot be added.";
+        header("Location: product.php");
         exit();
     }
 
@@ -82,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Success Message
     $_SESSION['add_message'] = "Product added successfully.";
-    header("Location: product.php");
+    header("Location: productListShow.php");
     exit();
 }
 

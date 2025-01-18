@@ -12,15 +12,15 @@
     // Category post
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $name = $_POST['name'];
-        $description = $_POST['description'];
+        $status = $_POST['status'];
 
 
-        $add_sql = "INSERT INTO categories (user_id, name, description) VALUES ('$user_id', '$name', '$description')";
+        $add_sql = "INSERT INTO categories (user_id, name, status) VALUES ('$user_id', '$name', '$status')";
 
         // Query 
         if (mysqli_query($conn, $add_sql)) {
             $_SESSION['category_message'] = "Category added successfully!";
-            header("Location: category.php");
+            header("Location: CategoryListShow.php");
             exit();
         } else {
             echo "Error updating profile: " . mysqli_error($conn);

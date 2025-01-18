@@ -110,7 +110,7 @@ body {
 
 .brand a {
     font-size: 24px;
-    color: #333;
+    color: #ead9e0;
     text-decoration: none;
     font-weight: bold;
 }
@@ -369,21 +369,17 @@ button.update_btn:hover {
 
 /* Main Content start over here */
 
-#description{
-    width: 100%;
-    max-width: 40ch;
-    height: 100px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: vertical;
-    font-size: 14px;
+#status{
+    width: 20%;
+    height: 30px;
+    margin-top: 5px;
+    border-color: #111214;
 
 }
 
-#description:focus {
+#status:focus {
     outline: none;
-    border-color: #000;
+    border-color: #79c8e2;
 }
 
 button.category_btn {
@@ -536,6 +532,7 @@ tbody tr:hover {
     border-radius: 4px;
     background-color: #45a049;
     margin-right: 3px;
+    text-decoration: none;
 }
 
 .delete_btn {
@@ -545,6 +542,7 @@ tbody tr:hover {
     border-radius: 4px;
     background-color: #e82a1c;
     margin-right: 3px;
+    text-decoration: none;
 }
 
 /* Search ber css */
@@ -635,3 +633,50 @@ tbody tr:hover {
     color: white;
     border-radius: 5px;
 }
+
+
+/* Multi Delete Product Button Css */
+
+/* Start Over Here */
+
+table tr th .multi_delete {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 7px;
+    border-radius: 4px;
+}
+
+/* Cateegory add button categorry list css */
+
+/* Over all start here */
+
+.list a .add_category {
+    display: flex;
+    flex-direction: row;
+    /* width: 20%; */
+    /* height: 0px; */
+    margin-left: 1000px;
+    /* margin-top: 60px; */
+    margin-bottom: 10px;
+    /* padding-bottom: 0px; */
+    padding: 8px;
+    border-radius: 7px;
+    border: none;
+    color: white;
+    background-color: rgb(38, 113, 113);
+    text-decoration: none;
+}
+
+.status-check {
+    display: inline-flex;
+    align-items: center;
+}
+
+.status_text {
+    margin-right: 10px;  
+    font-weight: bold; 
+    color: #333;        
+}
+
+/*  */

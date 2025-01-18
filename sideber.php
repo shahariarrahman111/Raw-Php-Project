@@ -14,7 +14,7 @@
                         <li><a href="productListShow.php">Product list</a></li>
                     </ul> -->
                 </li>
-                <li><a href="category.php">Category</a></li>
+                <li><a href="categoryListShow.php">Category</a></li>
                 <li><a href="profile.php">Profile</a></li>
                 <li><a href="#">Setting</a></li>
             </ul>
